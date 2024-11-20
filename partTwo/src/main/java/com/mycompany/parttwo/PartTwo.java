@@ -4,13 +4,18 @@
 
 package com.mycompany.parttwo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
  */
 
+
+
+
+
 //improved 3rd try
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class PartTwo {
@@ -26,22 +31,16 @@ public class PartTwo {
                     "Select an option:\n1. Add Task\n2. Show Report\n3. Quit", "Task Menu", JOptionPane.QUESTION_MESSAGE);
 
             switch (choice) {
-                case "1":
-                    addTasks(); // Call method to add tasks
-                    break;
+                case "1" -> addTasks(); // Call method to add tasks
 
-                case "2":
-                    showReport(); // Call method to show report
-                    break;
+                case "2" -> showReport(); // Call method to show report
 
-                case "3":
+                case "3" -> {
                     running = false; // Quit the application
                     JOptionPane.showMessageDialog(null, "Total hours for all tasks: " + totalHours + " hours");
-                    break;
+                }
 
-                default:
-                    JOptionPane.showMessageDialog(null, "Invalid option. Please enter 1, 2, or 3.");
-                    break;
+                default -> JOptionPane.showMessageDialog(null, "Invalid option. Please enter 1, 2, or 3.");
             }
         }
     }
@@ -74,19 +73,13 @@ public class PartTwo {
                         "Enter task status:\n1. To Do\n2. Doing\n3. Done", "Task Status", JOptionPane.QUESTION_MESSAGE);
 
                 switch (taskStatus) {
-                    case "1":
-                        taskStatus = "To Do";
-                        break;
-                    case "2":
-                        taskStatus = "Doing";
-                        break;
-                    case "3":
-                        taskStatus = "Done";
-                        break;
-                    default:
+                    case "1" -> taskStatus = "To Do";
+                    case "2" -> taskStatus = "Doing";
+                    case "3" -> taskStatus = "Done";
+                    default -> {
                         JOptionPane.showMessageDialog(null, "Invalid status. Defaulting to 'To Do'.");
                         taskStatus = "To Do";
-                        break;
+                    }
                 }
 
                 // Create Task object
@@ -107,52 +100,5 @@ public class PartTwo {
     // Method to show report 
     private static void showReport() {
         JOptionPane.showMessageDialog(null, "Report feature coming soon.");
-    }
-}
-
-// Task class
-class Task {
-    private String taskName;
-    private int taskNumber;
-    private String taskDescription;
-    private String developerDetails;
-    private int taskDuration;
-    private String taskStatus;
-    private String taskID;
-
-    public Task(String taskName, int taskNumber, String taskDescription, String developerDetails, int taskDuration, String taskStatus) {
-        this.taskName = taskName;
-        this.taskNumber = taskNumber;
-        this.taskDescription = taskDescription;
-        this.developerDetails = developerDetails;
-        this.taskDuration = taskDuration;
-        this.taskStatus = taskStatus;
-        this.taskID = createTaskID();
-    }
-
-    // Method 1 Checks the task description length
-    public boolean checkTaskDescription() {
-        return this.taskDescription.length() <= 50;
-    }
-
-    // Method 2 Creates the Task ID
-    public String createTaskID() {
-        return taskName.substring(0, 2).toUpperCase() + ":" + taskNumber + ":" + developerDetails.substring(0, 3).toUpperCase();
-    }
-
-    // Method 3 Prints the task details
-    public String printTaskDetails() {
-        return "Task Status: " + taskStatus + "\n" +
-               "Developer Details: " + developerDetails + "\n" +
-               "Task Number: " + taskNumber + "\n" +
-               "Task Name: " + taskName + "\n" +
-               "Task Description: " + taskDescription + "\n" +
-               "Task ID: " + taskID + "\n" +
-               "Task Duration: " + taskDuration + " hours\n";
-    }
-
-    // Method 4 Returns the total hours
-    public int returnTotalHours() {
-        return this.taskDuration;
     }
 }
