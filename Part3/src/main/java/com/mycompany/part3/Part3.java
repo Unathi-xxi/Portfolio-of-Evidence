@@ -15,10 +15,11 @@ public class Part3 {
     private static final ArrayList<Task> tasks = new ArrayList<>();
 
     public static void main(String[] args) {
-        initializeTestData(); // Prepopulate with test data
+        initializeTestData(); //Fills in the information with sample data.
 
         boolean running = true;
         while (running) {
+            //The following are all the option in the menue that the user can choose from
             String menu = """
                           Select an option:
                           1. Display All Tasks
@@ -46,7 +47,7 @@ public class Part3 {
         }
     }
 
-    // Initialize test data
+    //Creates sample data
     private static void initializeTestData() {
         tasks.add(new Task("Mike Smith", "Create Login", 5, "To Do"));
         tasks.add(new Task("Edward Harrison", "Create Add Features", 8, "Doing"));
@@ -54,7 +55,7 @@ public class Part3 {
         tasks.add(new Task("Glenda Oberholzer", "Add Arrays", 11, "To Do"));
     }
 
-    // 1. Display all tasks
+    //The first option displays all tasks to the user
     private static void displayAllTasks() {
         StringBuilder taskList = new StringBuilder("All Tasks:\n");
         for (Task task : tasks) {
@@ -63,7 +64,7 @@ public class Part3 {
         JOptionPane.showMessageDialog(null, taskList.toString());
     }
 
-    // 2. Display longest task
+    //The second option displays longest task to the user
     private static void displayLongestTask() {
         Task longestTask = tasks.get(0);
         for (Task task : tasks) {
@@ -74,7 +75,7 @@ public class Part3 {
         JOptionPane.showMessageDialog(null, "Longest Task:\n" + longestTask.toString());
     }
 
-    // 3. Search task by name
+    //The third option allows user to search task by name
     private static void searchTaskByName() {
         String taskName = JOptionPane.showInputDialog("Enter the task name to search:");
         for (Task task : tasks) {
@@ -86,7 +87,7 @@ public class Part3 {
         JOptionPane.showMessageDialog(null, "Task not found.");
     }
 
-    // 4. Search tasks by developer
+    //The fourth option allows user to search tasks by developer
     private static void searchTasksByDeveloper() {
         String developerName = JOptionPane.showInputDialog("Enter the developer name to search:");
         StringBuilder developerTasks = new StringBuilder("Tasks by " + developerName + ":\n");
@@ -106,7 +107,7 @@ public class Part3 {
         }
     }
 
-    // 5. Delete task by name
+    // The fifth option allows user to delete a task by name
     private static void deleteTaskByName() {
         String taskName = JOptionPane.showInputDialog("Enter the task name to delete:");
         for (int i = 0; i < tasks.size(); i++) {
@@ -119,7 +120,7 @@ public class Part3 {
         JOptionPane.showMessageDialog(null, "Task not found.");
     }
 
-    // 6. Display full report
+    //The sixth option displays the full report to the user
     private static void displayFullReport() {
         StringBuilder report = new StringBuilder("Full Task Report:\n");
         for (Task task : tasks) {
