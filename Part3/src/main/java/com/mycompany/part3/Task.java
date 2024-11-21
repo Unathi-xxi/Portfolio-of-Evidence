@@ -43,6 +43,6 @@ public class Task {
     // Override toString for display
     @Override
     public String toString() {
-        return "Developer: " + developerName + ", Task: " + taskName + ", Duration: " + taskDuration + ", Status: " + taskStatus;
+        return "Developer: " + developerName + ", Task Name: " + taskName + ", Task Duration: " + taskDuration + ", Task Status: " + taskStatus;
     }
 }
