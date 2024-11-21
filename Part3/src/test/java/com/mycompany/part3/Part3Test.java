@@ -11,11 +11,13 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Part3Test {
+    
+    //A list of test tasks used in various test cases
     private ArrayList<Task> testTasks;
 
+    //Sets up the test environment by initializing the 'testTasks' list with sample data
     @BeforeEach
     public void setUp() {
-        // Initialize test data
         testTasks = new ArrayList<>();
         testTasks.add(new Task("Mike Smith", "Create Login", 5, "To Do"));
         testTasks.add(new Task("Edward Harrison", "Create Add Features", 8, "Doing"));
@@ -23,6 +25,7 @@ public class Part3Test {
         testTasks.add(new Task("Glenda Oberholzer", "Add Arrays", 11, "To Do"));
     }
 
+    //Tests the 'displayAllTasks' method by comparing the actual output to the expected output
     @Test
     public void testDisplayAllTasks() {
         StringBuilder expectedOutput = new StringBuilder("All Tasks:\n");
@@ -38,6 +41,7 @@ public class Part3Test {
         assertEquals(expectedOutput.toString(), actualOutput.toString(), "Display All Tasks should match expected output.");
     }
 
+    //Tests the 'displayLongestTask' method by verifying that the longest task is correctly identified
     @Test
     public void testDisplayLongestTask() {
         Task longestTask = testTasks.get(0);
@@ -51,6 +55,7 @@ public class Part3Test {
         assertEquals(11, longestTask.getTaskDuration(), "The duration of the longest task should be 11.");
     }
 
+    //Tests the 'SearchTasksByName' method when the task is found
     @Test
     public void testSearchTaskByName_Found() {
         String searchTaskName = "Create Reports";
@@ -66,6 +71,7 @@ public class Part3Test {
         assertEquals("Samantha Paulson", foundTask.getDeveloperName(), "Developer should be Samantha Paulson.");
     }
 
+    //Tests the 'SearchTasksByName' method when the task is not found
     @Test
     public void testSearchTaskByName_NotFound() {
         String searchTaskName = "Nonexistent Task";
@@ -80,6 +86,7 @@ public class Part3Test {
         assertNull(foundTask, "Task should not be found.");
     }
 
+    //Tests the 'SearchTasksByDeveloper' method when the developer is found
     @Test
     public void testSearchTasksByDeveloper_Found() {
         String searchDeveloperName = "Mike Smith";
@@ -96,6 +103,7 @@ public class Part3Test {
         assertEquals("Create Login", developerTasks.get(0).getTaskName(), "The task should be 'Create Login'.");
     }
 
+    //Tests the 'SearchTasksByDeveloper' method when the developer is not found
     @Test
     public void testSearchTasksByDeveloper_NotFound() {
         String searchDeveloperName = "Unknown Developer";
@@ -110,6 +118,7 @@ public class Part3Test {
         assertTrue(developerTasks.isEmpty(), "No tasks should be found for this developer.");
     }
 
+    //Tests the 'deleteTaskByName' method when the task is successfully deleted
     @Test
     public void testDeleteTaskByName_Success() {
         String taskNameToDelete = "Create Add Features";
@@ -127,6 +136,7 @@ public class Part3Test {
         assertEquals(3, testTasks.size(), "Task list size should decrease by 1.");
     }
 
+    //Tests the 'deleteTaskByName' method when the task is not found
     @Test
     public void testDeleteTaskByName_NotFound() {
         String taskNameToDelete = "Nonexistent Task";
@@ -144,6 +154,7 @@ public class Part3Test {
         assertEquals(4, testTasks.size(), "Task list size should remain unchanged.");
     }
 
+    //Tests the 'fullReport' method by comparing the actual report to the expected report
     @Test
     public void testFullReport() {
         StringBuilder expectedReport = new StringBuilder("Full Task Report:\n");

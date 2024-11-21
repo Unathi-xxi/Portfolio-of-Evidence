@@ -4,106 +4,30 @@
  */
 package com.mycompany.part3;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
-/**
- *
- * @author Admin
- */
+import static org.junit.jupiter.api.Assertions.*;
+
 public class TaskTest {
-    
-    public TaskTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of getDeveloperName method, of class Task.
-     */
+    //Tests the 'Task' constructor to ensure it correctly initializes task properties
     @Test
-    public void testGetDeveloperName() {
-        System.out.println("getDeveloperName");
-        Task instance = null;
-        String expResult = "";
-        var result = instance.getDeveloperName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testConstructor() {
+        Task task = new Task("John Doe", "Task 1", 5, "To Do");
+      
+        // Assert that the task's properties are correctly set
+        assertEquals("John Doe", task.getDeveloperName());
+        assertEquals("Task 1", task.getTaskName());
+        assertEquals(5, task.getTaskDuration());
+        assertEquals("To Do", task.getTaskStatus());
     }
 
-    /**
-     * Test of getTaskName method, of class Task.
-     */
-    @Test
-    public void testGetTaskName() {
-        System.out.println("getTaskName");
-        Task instance = null;
-        String expResult = "";
-        String result = instance.getTaskName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getTaskDuration method, of class Task.
-     */
-    @Test
-    public void testGetTaskDuration() {
-        System.out.println("getTaskDuration");
-        Task instance = null;
-        int expResult = 0;
-        int result = instance.getTaskDuration();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getTaskStatus method, of class Task.
-     */
-    @Test
-    public void testGetTaskStatus() {
-        System.out.println("getTaskStatus");
-        Task instance = null;
-        String expResult = "";
-        String result = instance.getTaskStatus();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of toString method, of class Task.
-     */
+    //Tests the 'toString()' method to ensure it returns the correct string representation of a 'Task' object
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Task instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Task task = new Task("Jane Smith", "Task 2", 10, "In Progress");
+
+        String expectedString = "Developer: Jane Smith, Task Name: Task 2, Task Duration: 10, Task Status: In Progress";
+        assertEquals(expectedString, task.toString());
     }
-    
 }
