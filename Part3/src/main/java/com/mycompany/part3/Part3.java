@@ -17,10 +17,10 @@ public class Part3 {
     public static void main(String[] args) {
         initializeTestData(); //Fills in the information with sample data.
 
-        boolean running = true;
-        while (running) {
-            //The following are all the option in the menue that the user can choose from
-            String menu = """
+        boolean isProgramRunning = true;
+        while (isProgramRunning) {
+            //The following are all the option in the menu that the user can choose from
+            String userOptions = """
                           Select an option:
                           1. Display All Tasks
                           2. Display Longest Task
@@ -29,9 +29,9 @@ public class Part3 {
                           5. Delete Task by Name
                           6. Display Full Report
                           7. Exit""";
-            String choice = JOptionPane.showInputDialog(menu);
+            String userChoice = JOptionPane.showInputDialog(userOptions);
 
-            switch (choice) {
+            switch (userChoice) {
                 case "1" -> displayAllTasks();
                 case "2" -> displayLongestTask();
                 case "3" -> searchTaskByName();
@@ -39,7 +39,7 @@ public class Part3 {
                 case "5" -> deleteTaskByName();
                 case "6" -> displayFullReport();
                 case "7" -> {
-                    running = false;
+                    isProgramRunning = false;
                     JOptionPane.showMessageDialog(null, "Exiting application.");
                 }
                 default -> JOptionPane.showMessageDialog(null, "Invalid option. Please try again.");

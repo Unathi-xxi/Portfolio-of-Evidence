@@ -10,16 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskTest {
 
+    //Tests the 'Task' constructor to ensure it correctly initializes task properties
     @Test
     public void testConstructor() {
         Task task = new Task("John Doe", "Task 1", 5, "To Do");
-
+      
+        // Assert that the task's properties are correctly set
         assertEquals("John Doe", task.getDeveloperName());
         assertEquals("Task 1", task.getTaskName());
         assertEquals(5, task.getTaskDuration());
         assertEquals("To Do", task.getTaskStatus());
     }
 
+    //Tests the 'toString()' method to ensure it returns the correct string representation of a 'Task' object
     @Test
     public void testToString() {
         Task task = new Task("Jane Smith", "Task 2", 10, "In Progress");
